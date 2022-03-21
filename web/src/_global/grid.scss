@@ -1,0 +1,146 @@
+// Grid Widths
+//------------------------------------------------------------------------------
+
+$grid-fallback-widths: (
+  1: 8.3333%,
+  2: 16.666%,
+  3: 25%,
+  4: 33.3333%,
+  5: 41.6666%,
+  6: 50%,
+  7: 58.3333%,
+  8: 66.6666%,
+  9: 75%,
+  10: 83.3333%,
+  11: 91.6666%,
+  12: 100%,
+);
+
+$grid-gutter: 16px;
+
+@mixin grid-max-width() {
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin grid-gutter() {
+  padding-right: $grid-gutter;
+  padding-left: $grid-gutter;
+  grid-column-gap: $grid-gutter;
+
+  @include breakpoint(large up) {
+    padding-right: $grid-gutter * 2;
+    padding-left: $grid-gutter * 2;
+    grid-column-gap: $grid-gutter * 2;
+  }
+}
+
+.grid {
+  @include grid-max-width;
+  @include grid-gutter;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  align-items: start;
+
+  .modernizr-no-cssgrid & {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .modernizr-no-cssgrid.modernizr-no-flexbox {
+    display: block;
+
+    &::before,
+    &::after {
+      content: "";
+      display: table;
+      flex-basis: 0;
+      order: 1;
+    }
+
+    &::after {
+      clear: both;
+    }
+  }
+}
+
+.gridStretch {
+  > .gridItem {
+    height: 100%;
+  }
+}
+
+.gridItem {
+  width: auto;
+  grid-column-end: span 12;
+
+  .modernizr-no-cssgrid & {
+    width: 100%;
+    padding-right: $grid-gutter;
+    padding-left: $grid-gutter;
+  }
+
+  .modernizr-no-cssgrid.modernizr-no-flexbox {
+    float: left;
+  }
+}
+
+@each $breakpoint, $size in $breakpoints {
+  @media screen and (min-width: #{$size}) {
+    @for $i from 1 through 12 {
+      // Col width classes
+      .#{$breakpoint}-#{$i} {
+        display: inline-block;
+        width: auto;
+        grid-column-end: span $i;
+
+        .modernizr-no-cssgrid & {
+          width: map-get($grid-fallback-widths, $i);
+        }
+
+        &.gridItemCenter {
+          max-width: percentage($i / 12);
+          grid-column-end: span 12;
+          justify-self: center;
+        }
+      }
+
+      // Offset classes
+      .#{$breakpoint}-offset-#{$i} {
+        grid-column-start: $i + 1;
+
+        .modernizr-no-cssgrid & {
+          margin-left: map-get($grid-fallback-widths, $i);
+        }
+      }
+    }
+  }
+}
+
+.gridInner {
+  padding-right: $grid-gutter;
+  padding-left: $grid-gutter;
+}
+
+// Grid helper classes
+.gridUnpadded {
+  grid-column-gap: 0;
+  padding-right: 0;
+  padding-left: 0;
+
+  > .gridItem {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.gridFlush {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.align-center {
+  align-self: center;
+}

@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #ff0066;
+  --tone-light: #efefef;
+}
+
+body {
+  @include body;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+a {
+  @include transition(color);
+  color: currentColor;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--primary-color);
+}
+
+img {
+  width: 100%;
+}

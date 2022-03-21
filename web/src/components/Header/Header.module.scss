@@ -1,0 +1,113 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  color: white;
+  background: black;
+  z-index: 10;
+}
+
+.headerInner {
+  display: flex;
+  max-width: $maxWidth;
+  padding: block(gutter);
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  justify-content: space-between;
+
+  @include breakpoint(large up) {
+    padding: block(gutter) block(medium);
+  }
+}
+
+.headerLogo {
+  width: 40px;
+}
+
+.headerNav {
+  ul {
+    display: flex;
+  }
+
+  a {
+    @include font-roboto(700);
+    position: relative;
+
+    &::after {
+      @include transition(background-color);
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+    }
+  }
+
+  a.isActive::after {
+    background-color: var(--primary-color);
+  }
+
+  @include breakpoint(medium down) {
+    @include transition((opacity, transform, visibility));
+    position: fixed;
+    inset: 69px 0 0;
+    background-color: black;
+    opacity: 0;
+    transform: scale(0.75);
+    visibility: hidden;
+
+    ul {
+      height: 100%;
+      margin: auto;
+      flex-wrap: wrap;
+      align-content: center;
+    }
+
+    li {
+      @include transition((opacity, transform));
+      width: 100%;
+      padding: block(gutter);
+      opacity: 0;
+      text-align: center;
+      transform: translateY(10px);
+    }
+
+    a {
+      font-size: 24px;
+    }
+
+    .headerButton[aria-expanded="true"] + & {
+      opacity: 1;
+      transform: scale(1);
+      visibility: visible;
+
+      @for $i from 1 through 6 {
+        $delay: $i * 50ms + 200ms;
+
+        li:nth-child(#{$i}) {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: $delay;
+        }
+      }
+    }
+  }
+
+  @include breakpoint(large up) {
+    ul {
+      margin-right: -(block(gutter));
+      margin-left: -(block(gutter));
+    }
+
+    li {
+      padding: 0 block(gutter);
+    }
+
+    a {
+      font-size: 14px;
+    }
+  }
+}
