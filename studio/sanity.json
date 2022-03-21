@@ -1,0 +1,41 @@
+{
+  "root": true,
+  "api": {
+    "projectId": "iw3ax3dz",
+    "dataset": "production"
+  },
+  "project": {
+    "name": "boilerplate"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/base/new-document-structure",
+      "path": "./src/newDocumentStructure.js"
+    },
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "./src/variableOverrides.css"
+    },
+    {
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./src/logo.js"
+    }
+  ]
+}
