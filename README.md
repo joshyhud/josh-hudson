@@ -30,7 +30,7 @@ cd into the studio directory
 3. When prompted with `The current folder contains a configured Sanity studio. Would you like to reconfigure it?` hit enter to accept.
 4. Run `yarn start` or `sanity start` to start a local server
 
-**You will need to generate a read token in order to consume the data on the frontend**
+#### You will need to generate a read token in order to consume the data on the frontend
 1. Login to the [Sanity console](https://www.sanity.io/manage)
 2. Select the project you created above
 3. Navigate to the API section of the project
@@ -39,15 +39,15 @@ cd into the studio directory
 6. Allow Viewer (read only) priviledges and save
 7. The token will only be visible once so ensure you save it somewhere you can access later
 
-**Using multiple datasets for different environments**
+#### Using multiple datasets for different environments
 - When switching between datasets for different environments it is better to use environment variables rather than editing `sanity.json` directly
 - Run `cp .env.template .env` to copy the template to a new `.env` file.
 - Update the `SANITY_STUDIO_API_DATASET` variable
 
-**Building the studio**
+#### Building the studio
 - Run `yarn build` or `sanity build`
 
-**Updating the studio**
+#### Updating the studio
 - Run `sanity upgrade`
 
 For documentation on Sanity CMS visit https://www.sanity.io/docs.
@@ -74,15 +74,15 @@ This project uses limited global styles which can be found in the `web/src/_glob
 ### Storybook
 This project comes with storybook already setup. 
 
-**What is Storybook?**
+#### What is Storybook?
 Storybook is a development tool that is used as a playground for UI components. It allows developers to create and test components in isolation and can be used to create a design system for use by designers.
 
 A story captures the rendered state of a UI component. It’s a function that returns a component’s state given a set of arguments.
 
-**Where to put stories?**
+#### Where to put stories?
 A component’s stories are defined in a story file using the `stories.js` prefix and lives inside the component folder. The story file is for development only, and it won't be included in your production bundle.
 
-**Start a Storybook server**
+#### Start a Storybook server
 - cd into the web directory
 - Run `yarn storybook`
 
