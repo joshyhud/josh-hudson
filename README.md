@@ -6,6 +6,13 @@ This is a stater project for Sanity.io/NextJS projects.
   - [Sanity Setup](#sanity-setup)
   - [Next Setup](#next-setup)
 - [Usage](#usage)
+  - [Global CSS](#global-css)
+  - [CSS Modules](#css-modules)
+  - [Components](#components)
+  - [Storybook](#storybook)
+  - [Accessibility](#accessibility)
+  - [Unit Testing](#unit-testing)
+- [Deployment]
 
 ## Requirements
 - NodeJS (version 14.17.6)
@@ -56,3 +63,33 @@ cd into the web directory
 For documentation on NextJS visit https://nextjs.org/docs.
 
 ## Usage
+
+### Global CSS
+This project uses limited global styles which can be found in the `web/src/_global` directory. These include a `base.scss` file to normalize browser styles.
+
+### CSS Modules
+
+### Components
+
+### Storybook
+This project comes with storybook already setup. 
+
+**What is Storybook?**
+Storybook is a development tool that is used as a playground for UI components. It allows developers to create and test components in isolation and can be used to create a design system for use by designers.
+
+A story captures the rendered state of a UI component. It’s a function that returns a component’s state given a set of arguments.
+
+**Where to put stories?**
+A component’s stories are defined in a story file using the `stories.js` prefix and lives inside the component folder. The story file is for development only, and it won't be included in your production bundle.
+
+**Start a Storybook server**
+- cd into the web directory
+- Run `yarn storybook`
+
+### Accessibility
+
+### Unit Testing
+
+[ ] To do - this will be implemented in future
+
+### Deployment
