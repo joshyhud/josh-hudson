@@ -1,5 +1,5 @@
-// Grid
-//------------------------------------------------------------------------------
+/* Grid Widths */
+
 $maxWidth: 1400px;
 $gridGutter: 16px;
 
@@ -19,8 +19,7 @@ $gridGutter: 16px;
   }
 }
 
-// Breakpoints
-//------------------------------------------------------------------------------
+/* Breakpoints */
 
 $breakpoints: (
   small: 0,
@@ -51,13 +50,13 @@ $breakpoints: (
       @if $next == null {
         $max: null;
       } @else {
-        $max: nth($next, 2) - (1 / 16);
+        $max: nth($next, 2) - calc(1 / 16);
         $query: $query + " and (max-width: #{$max})";
       }
     } @else if $dir == "up" {
       $query: $query + " and (min-width: #{$min})";
     } @else if $dir == "down" {
-      $max: nth($next, 2) - (1 / 16);
+      $max: nth($next, 2) - calc(1 / 16);
       $query: $query + " and (max-width: #{$max})";
     }
 
@@ -67,11 +66,13 @@ $breakpoints: (
   }
 }
 
-/// Apply a custom font with fallbacks while loading - avoids FOIT.
-/// @prop {String|List} $font - Custom font name(s) as specified in fonts.coffee.
-/// @prop {String|List} $fallbacks - Fallback font name(s) to use until custom fonts load. Should
-///   end with a generic family without quotes, e.g. sans-serif.
-/// @see https://www.filamentgroup.com/lab/font-events.html.
+/*  
+  Apply a custom font with fallbacks while loading - avoids FOIT.
+  @prop {String|List} $font - Custom font name(s) as specified in fonts.coffee.
+  @prop {String|List} $fallbacks - Fallback font name(s) to use until custom fonts load. Should
+  end with a generic family without quotes, e.g. sans-serif.
+  @see https://www.filamentgroup.com/lab/font-events.html.
+*/
 @mixin font-family($font, $fallbacks) {
   font-family: $font, $fallbacks;
 
@@ -80,8 +81,7 @@ $breakpoints: (
   }
 }
 
-// Fonts
-//------------------------------------------------------------------------------
+/* Fonts */
 
 $fallbacks: Helvetica Neue, Helvetica, Arial, sans-serif;
 
@@ -102,8 +102,7 @@ $fallbacks: Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 }
 
-// Typography
-//------------------------------------------------------------------------------
+/* Typography */
 
 @mixin title {
   @include font-roboto(700);
@@ -184,24 +183,19 @@ $fallbacks: Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 }
 
-// Colors
-//------------------------------------------------------------------------------
+/* Colors */
 
-$colors: (
-  // Brand colours
-  // Tones
-);
+$colors: (/* Brand colours */ /* Tones */);
 
 @function color($color) {
   @return map-get($colors, $color);
 }
 
-// Layout
-//------------------------------------------------------------------------------
+/* Layout */
 
 @mixin hideScrollbars {
   scrollbar-width: none;
-  // sass-lint:disable no-vendor-prefixes
+  /* sass-lint:disable no-vendor-prefixes */
   -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
@@ -225,8 +219,7 @@ $colors: (
   white-space: nowrap; /* added line */
 }
 
-// Block Sizings
-//------------------------------------------------------------------------------
+/* Block Sizings */
 
 $blocks: (
   4xlarge: 9rem,
@@ -243,8 +236,7 @@ $blocks: (
   @return map-get($blocks, $block);
 }
 
-// Animation
-//------------------------------------------------------------------------------
+/* Animation */
 
 @mixin transition($props, $ease: ease, $duration: 250ms) {
   transition-duration: $duration;
@@ -252,8 +244,7 @@ $blocks: (
   transition-timing-function: $ease;
 }
 
-// Theme
-//------------------------------------------------------------------------------
+/* Theme */
 
 @mixin section {
   width: 100%;

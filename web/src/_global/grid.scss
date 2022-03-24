@@ -1,5 +1,4 @@
-// Grid Widths
-//------------------------------------------------------------------------------
+/* Grid Widths */
 
 $grid-fallback-widths: (
   1: 8.3333%,
@@ -90,7 +89,7 @@ $grid-gutter: 16px;
 @each $breakpoint, $size in $breakpoints {
   @media screen and (min-width: #{$size}) {
     @for $i from 1 through 12 {
-      // Col width classes
+      /* Col width classes */
       .#{$breakpoint}-#{$i} {
         display: inline-block;
         width: auto;
@@ -101,13 +100,13 @@ $grid-gutter: 16px;
         }
 
         &.gridItemCenter {
-          max-width: percentage($i / 12);
+          max-width: percentage(calc($i / 12));
           grid-column-end: span 12;
           justify-self: center;
         }
       }
 
-      // Offset classes
+      /* Offset classes */
       .#{$breakpoint}-offset-#{$i} {
         grid-column-start: $i + 1;
 
@@ -124,7 +123,7 @@ $grid-gutter: 16px;
   padding-left: $grid-gutter;
 }
 
-// Grid helper classes
+/* Grid helper classes */
 .gridUnpadded {
   grid-column-gap: 0;
   padding-right: 0;

@@ -53,4 +53,6 @@ cd into the web directory
 3. Update the `NEXT_PUBLIC_SANITY_ID`, `NEXT_PUBLIC_SANITY_DATASET` & `NEXT_PUBLIC_SANITY_TOKEN` to the ones created during the Sanity setup
 4. Run `yarn dev` to start a local server
 
+For documentation on NextJS visit https://nextjs.org/docs.
+
 ## Usage
