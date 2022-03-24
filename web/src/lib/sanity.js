@@ -8,8 +8,9 @@ import createImageUrlBuilder from '@sanity/image-url'
 const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_ID, // you can find this in sanity.json
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET, // or the name you chose in step 1
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
   apiVersion: '2021-10-21',
-  useCdn: true
+  useCdn: process.env.NODE_ENV === 'production'
 }
 
 export const urlFor = source => createImageUrlBuilder(config).image(source)

@@ -4,22 +4,24 @@ import PropTypes from 'prop-types'
 import Text from "../PageBuilderText"
 
 const PageBuilder = ({ blocks }) => {
-    const components = {
-        "pageBuilderText": Text,
-    }
+  const components = {
+    "pageBuilderText": Text,
+  }
 
-    return blocks.map(block => {
-        if (components[block._type]) {
-            return React.createElement(components[block._type], {
-                key: block._key,
-                block
-            })
-        }
-    })
+  if (!blocks) return null
+
+  return blocks.map(block => {
+    if (components[block._type]) {
+      return React.createElement(components[block._type], {
+        key: block._key,
+        block
+      })
+    }
+  })
 }
 
 export default PageBuilder
 
 PageBuilder.propTypes = {
-    blocks: PropTypes.array
+  blocks: PropTypes.array
 }
