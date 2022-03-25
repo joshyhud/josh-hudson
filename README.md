@@ -86,7 +86,15 @@ A component’s stories are defined in a story file using the `stories.js` prefi
 - cd into the web directory
 - Run `yarn storybook`
 
+For documentation on Storybook visit https://storybook.js.org/docs.
+
 ### Accessibility
+
+At Tilt we strive to build accessible and inclusive experiences. As such we follow the WCAG on accessibility standards and aim to meet the AA standards as a minimum.
+
+In future we will integrate automated accessibility testing, however, accessibility should be a primary concern throughout the build.
+
+For more information of these standards visit https://www.w3.org/TR/WCAG21/.
 
 ### Unit Testing
 
