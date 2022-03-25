@@ -90,6 +90,6 @@ A component’s stories are defined in a story file using the `stories.js` prefi
 
 ### Unit Testing
 
-[ ] To do - this will be implemented in future
+This is not yet implemented but will be in future.
 
 ### Deployment
