@@ -31,3 +31,6 @@ web/out/
 **/.env.*
 !**/.env.template
 
+
+# Local Netlify folder
+.netlify

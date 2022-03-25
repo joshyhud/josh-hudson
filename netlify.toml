@@ -1,0 +1,14 @@
+[build]
+  base = "web"
+  command = "NODE_ENV=production && yarn build"
+  publish = "out"
+
+[functions]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "14.17.6" 
+
+[context.branch-deploy.environment]
+  NEXT_SERVERLESS = "true"
+  NODE_ENV = "production"

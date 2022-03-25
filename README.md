@@ -13,6 +13,8 @@ This is a stater project for Sanity.io/NextJS projects.
   - [Accessibility](#accessibility)
   - [Unit Testing](#unit-testing)
 - [Deployment]
+  - [Sanity Deployment](#sanity-deployment)
+  - [Next Deployment](#next-deployment)
 
 ## Requirements
 - NodeJS (version 14.17.6)
@@ -70,7 +72,56 @@ This project uses limited global styles which can be found in the `web/src/_glob
 - Some global grid styles to help with layouts.
 - A `theme.scss` file for global theme styles such as base typography styles.
 - A `_variables.scss` for global mixins and variables that need to be available to all modules.
+
 ### SCSS Modules
+This project uses CSS modules in combination with scss. All classes in CSS modules are name-spaced to the module and, therefore, avoid unintentionaly conflicting CSS.
+
+#### Class naming conventions
+CamelCase naming is preferred, though not enforced. For example, you may wish to use camelCase naming alongside a BEM methodoly;
+```scss
+/* Component */
+.componentName {}
+
+/* Component modifier */
+.componentName--modifierName {}
+
+/* Component descendant */
+.componentName__descendant {}
+
+/* Component descendant modifier */
+.componentName__descendant--modifierName {}
+```
+
+Or simply use camelCase on it's own;
+```scss
+/* Component */
+.componentName {}
+
+/* Component modifier */
+.componentNameModifier {}
+
+/* Component descendant */
+.componentNameDescendant {}
+```
+
+It is expected, however, that a project will be consitent in it's namming convention, i.e. the same naming convention throughout.
+
+#### Applying classnames in JSX
+The CSS in a CSS module is no different than normal CSS, but the extension of the file is different to mark that the file will be processed. A CSS module must be imported and declared as a JavaScript object. A CSS class from that object is then referenced in the JSX className attribute which renders into HTML with dynamic CSS class names.
+
+E.g.
+```js
+import React from 'react'
+import styles from "./ComponentName.module.css"
+
+const ComponentName = ({ children }) => {
+  return (
+    <section className={styles.className}>{children}</section>
+  )
+}
+
+export default ComponentName
+```
 
 ### Components
 
@@ -92,7 +143,6 @@ A component’s stories are defined in a story file using the `stories.js` prefi
 For documentation on Storybook visit https://storybook.js.org/docs.
 
 ### Accessibility
-
 At Tilt we strive to build accessible and inclusive experiences. As such we follow the WCAG on accessibility standards and aim to meet high level AA standards as a minimum.
 
 In future we will integrate automated accessibility testing, however, accessibility should be a primary concern throughout the build.
@@ -100,7 +150,21 @@ In future we will integrate automated accessibility testing, however, accessibil
 For more information on these standards visit https://www.w3.org/TR/WCAG21/.
 
 ### Unit Testing
-
 This is not yet implemented but will be in future.
 
-### Deployment
+## Deployment
+
+### Sanity Deployment
+
+### Next Deployment
+This project is setup for deployment to Netlify with configuration in `netlify.toml`.
+
+#### Deploy via the GUI (Recommended)
+[A step-by-step guide to deploying using the Netlify GUI](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
+
+#### Deploy via the CLI
+- Ensure you have the Netlify CLI package installed: run `npm install netlify-cli -g`
+- Login in to obtain an authentication token: run `netlify login`
+- This will open the browser to complete authentication
+- Connect the repo for continuous integration: run `netlify init` and follow setup instructions
+- Deploy to Netlify: run `netlify deploy`
