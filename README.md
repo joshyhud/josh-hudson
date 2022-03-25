@@ -6,8 +6,8 @@ This is a stater project for Sanity.io/NextJS projects.
   - [Sanity Setup](#sanity-setup)
   - [Next Setup](#next-setup)
 - [Usage](#usage)
-  - [Global CSS](#global-css)
-  - [CSS Modules](#css-modules)
+  - [Global SCSS](#global-scss)
+  - [SCSS Modules](#scss-modules)
   - [Components](#components)
   - [Storybook](#storybook)
   - [Accessibility](#accessibility)
@@ -64,15 +64,18 @@ For documentation on NextJS visit https://nextjs.org/docs.
 
 ## Usage
 
-### Global CSS
-This project uses limited global styles which can be found in the `web/src/_global` directory. These include a `base.scss` file to normalize browser styles.
-
-### CSS Modules
+### Global SCSS
+This project uses limited global styles which can be found in the `web/src/_global` directory. These include;
+- A `base.scss` file to normalize browser styles. This should not be edited.
+- Some global grid styles to help with layouts.
+- A `theme.scss` file for global theme styles such as base typography styles.
+- A `_variables.scss` for global mixins and variables that need to be available to all modules.
+### SCSS Modules
 
 ### Components
 
 ### Storybook
-This project comes with storybook already setup. 
+This project comes with Storybook already setup. 
 
 #### What is Storybook?
 Storybook is a development tool that is used as a playground for UI components. It allows developers to create and test components in isolation and can be used to create a design system for use by designers.
