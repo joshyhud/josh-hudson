@@ -94,7 +94,7 @@ At Tilt we strive to build accessible and inclusive experiences. As such we foll
 
 In future we will integrate automated accessibility testing, however, accessibility should be a primary concern throughout the build.
 
-For more information of these standards visit https://www.w3.org/TR/WCAG21/.
+For more information on these standards visit https://www.w3.org/TR/WCAG21/.
 
 ### Unit Testing
 
