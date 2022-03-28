@@ -1,5 +1,5 @@
 # Sanity.io/NextJS Boilerplate
-This is a stater project for Sanity.io/NextJS projects.
+This is a stater project for Sanity.io/NextJS projects. Run `git@github.com:wearetilt/boilerplates.git your-project-name` to clone this starter to a new project then follow the setup steps below.
 
 - [Requirements](#requirments)
 - [Setup](#setup)
@@ -12,7 +12,7 @@ This is a stater project for Sanity.io/NextJS projects.
   - [Storybook](#storybook)
   - [Accessibility](#accessibility)
   - [Unit Testing](#unit-testing)
-- [Deployment]
+- [Deployment](#deployment)
   - [Sanity Deployment](#sanity-deployment)
   - [Next Deployment](#next-deployment)
 
@@ -112,7 +112,7 @@ The CSS in a CSS module is no different than normal CSS, but the extension of th
 E.g.
 ```js
 import React from 'react'
-import styles from "./ComponentName.module.css"
+import styles from "./ComponentName.module.scss"
 
 const ComponentName = ({ children }) => {
   return (
