@@ -12,6 +12,9 @@ web/out/
 # sanity.io
 **/dist
 
+# bit.dev
+**/.bit
+
 # misc
 .DS_Store
 *.pem
