@@ -141,7 +141,7 @@ This project is already configured to use our Reusable Component Library hosted 
 Bit.dev is a tool for isolating components and packaging them up into standalone reusable units. We use Bit in our NextJS projects for installing common components with basic functionality and minimally styled. These barebones components can then be extended to fit the needs of the project.
 
 #### Installing Components
-- View [add storybook link once setup] to browse available components.
+- View [our Storybook library](https://wearetilt.github.io/reusable-component-library) to browse available components.
 - Follow component documentation to install into the project.
 - The component will be installed directly into the `components` directory and can be used as you would any other component.
 
