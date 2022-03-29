@@ -76,7 +76,7 @@ For documentation on NextJS visit https://nextjs.org/docs.
 
 ### Global SCSS
 This project uses limited global styles which can be found in the `web/src/_global` directory. These include;
-- A `base.scss` file to normalize browser styles. **This should not be edited.**
+- A `base.scss` file to normalize browser styles. **This should NOT be edited.**
 - Some global grid styles to help with layouts.
 - A `theme.scss` file for global theme styles such as base typography styles.
 - A `_variables.scss` for global mixins and variables that need to be available to all modules.
