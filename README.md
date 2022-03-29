@@ -38,8 +38,8 @@ cd into the studio directory
 1. Ensure that Yarn is installed globally, run `yarn` or `yarn install` to install the project dependencies.
 2. Run `sanity init` to initiate a new Santiy project.
 3. When prompted with `The current folder contains a configured Sanity studio. Would you like to reconfigure it?` hit enter to accept.
-4. Follow the steps to either create a new project or choose and existing one:
-4.1. If creating a new project enter a project name & accept the default dataset configuration.
+4. Follow the steps to either create a new project or choose and existing one:  
+  4.1 If creating a new project enter a project name & accept the default dataset configuration.
 5. Run `yarn start` or `sanity start` to start a local server.
 
 #### You will need to generate a read token in order to consume the data on the frontend
