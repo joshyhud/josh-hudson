@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "bit-clean": "rm -r src/components/**/node_modules src/components/**/package.json src/components/**/yarn.lock"
   },
   "dependencies": {
     "@portabletext/react": "^1.0.4",
