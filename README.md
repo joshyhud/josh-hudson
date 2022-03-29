@@ -1,8 +1,9 @@
 # Sanity.io/NextJS Boilerplate
 This is a stater project for Sanity.io/NextJS projects. Run `git clone git@github.com:wearetilt/boilerplates.git your-project-name` to clone this starter to a new project then follow the setup steps below.
 
-- [Requirements](#requirments)
-- [Setup](#setup)
+- [Requirements](#requirements)
+- [Global Setup](#global-setup)
+- [Project Setup](#project-setup)
   - [Sanity Setup](#sanity-setup)
   - [Next Setup](#next-setup)
 - [Usage](#usage)
@@ -20,8 +21,15 @@ This is a stater project for Sanity.io/NextJS projects. Run `git clone git@githu
 - NodeJS (version 14.17.6)
 - Yarn
 - Sanity CLI
+- Bit
 
-## Setup
+## Global Setup
+This project requires certain packages to be installed globally before setting up. These steps are only required the first time using these packages. Once installed globally these steps can be skipped for future projects.
+- [Install Yarn globally](https://wearetilt.atlassian.net/wiki/spaces/WATP/pages/90767385/How+to+-+Install+NVM+Node+and+NPM#Yarn-Setup)
+- To install Sanity CLI run: `npm install -g @sanity/cli`
+- [Install Bit globally](https://wearetilt.atlassian.net/wiki/spaces/WATP/pages/93323269/How+to+-+Set+up+Bit)
+
+## Project Setup
 This project is setup as a monorepo as while the Sanity dashboard and NextJS frontend are linked they operate technically as distinctly separate and independent apps.
 
 ### Sanity Setup
@@ -39,7 +47,7 @@ cd into the studio directory
 4. In the Tokens section click `Add API Token`
 5. Enter a descriptive name, e.g. NextJS Read Token
 6. Allow Viewer (read only) priviledges and save
-7. The token will only be visible once so ensure you save it somewhere you can access later
+7. The token will only be visible once so **ensure you save it somewhere you can access later**
 
 #### Using multiple datasets for different environments
 - When switching between datasets for different environments it is better to use environment variables rather than editing `sanity.json` directly
@@ -68,7 +76,7 @@ For documentation on NextJS visit https://nextjs.org/docs.
 
 ### Global SCSS
 This project uses limited global styles which can be found in the `web/src/_global` directory. These include;
-- A `base.scss` file to normalize browser styles. This should not be edited.
+- A `base.scss` file to normalize browser styles. **This should not be edited.**
 - Some global grid styles to help with layouts.
 - A `theme.scss` file for global theme styles such as base typography styles.
 - A `_variables.scss` for global mixins and variables that need to be available to all modules.
@@ -77,7 +85,7 @@ This project uses limited global styles which can be found in the `web/src/_glob
 This project uses CSS modules in combination with scss. All classes in CSS modules are name-spaced to the module and, therefore, avoid unintentionaly conflicting CSS.
 
 #### Class naming conventions
-CamelCase naming is preferred, though not enforced. For example, you may wish to use camelCase naming alongside a BEM methodoly;
+CamelCase naming is preferred, though not enforced. For example, you may wish to use camelCase naming alongside a [BEM methodology](https://en.bem.info/methodology/css/);
 ```scss
 /* Component */
 .componentName {}
