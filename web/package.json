@@ -22,9 +22,7 @@
     "next-sanity": "^0.5.1",
     "prop-types": "^15.8.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "@we-are-tilt/reusable-component-library.ui.page-builder-image-text": "file:./src/components/ui/page-builder-image-text",
-    "@we-are-tilt/reusable-component-library.page-builder-image-text": "file:./src/components/page-builder-image-text"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

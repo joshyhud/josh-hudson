@@ -1,5 +1,5 @@
 # Sanity.io/NextJS Boilerplate
-This is a stater project for Sanity.io/NextJS projects. Run `git@github.com:wearetilt/boilerplates.git your-project-name` to clone this starter to a new project then follow the setup steps below.
+This is a stater project for Sanity.io/NextJS projects. Run `git clone git@github.com:wearetilt/boilerplates.git your-project-name` to clone this starter to a new project then follow the setup steps below.
 
 - [Requirements](#requirments)
 - [Setup](#setup)
