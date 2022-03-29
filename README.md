@@ -177,6 +177,7 @@ This is not yet implemented but will be in future.
 ## Deployment
 
 ### Sanity Deployment
+To add once Confluence documentation on CI integration written.
 
 ### Next Deployment
 This project is setup for deployment to Netlify with configuration in `netlify.toml`.
