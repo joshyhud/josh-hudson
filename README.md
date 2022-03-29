@@ -135,6 +135,15 @@ export default ComponentName
 ```
 
 ### Components
+This project configured to use our Reusable Component Library hosted by Bit.dev.
+
+#### What is Bit
+Bit.dev is a tool for isolating components and packaging them up into standalone reusable units. We use Bit in our NextJS projects for installing common components with basic functionality and minimally styled. These barebones components can then be extended to fit the needs of the project.
+
+#### Installing Components
+- View [add storybook link once setup] to browse available components.
+- Follow component documentation to install into the project.
+- The component will be installed directly into the `components` directory and can be used as you would any other component.
 
 ### Storybook
 This project comes with Storybook already setup. 
