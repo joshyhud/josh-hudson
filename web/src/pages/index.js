@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { groq } from 'next-sanity'
 import { getClient } from '../lib/sanity'
 
-import Seo from '../components/Seo'
-import Header from '../components/Header'
-import PageBuilder from '../components/PageBuilder'
+import Seo from '../components/seo'
+import Header from '../components/header'
+import PageBuilder from '../components/page-builder'
 
 const pageQuery = groq`{
   'globalSettings': *[_type == 'globalSettings'][0],
