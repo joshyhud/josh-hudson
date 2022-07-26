@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types'
 // Import components
-import Text from "../PageBuilderText"
+import Text from "../page-builder-text"
 
 const PageBuilder = ({ blocks }) => {
   const components = {
-    "pageBuilderText": Text,
+    "pageBuilderTextSection": Text,
   }
 
   if (!blocks) return null

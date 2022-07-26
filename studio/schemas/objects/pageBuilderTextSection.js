@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       title: 'Section Title',
-      name: 'sectionTitle',
+      name: 'title',
       type: 'string'
     },
     {
@@ -16,7 +16,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'sectionTitle',
+      title: 'title',
     },
     prepare({ title }) {
       return {
