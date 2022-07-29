@@ -1,5 +1,3 @@
-
-   
 export default {
   title: 'Page Builder',
   name: 'pageBuilder',
@@ -7,8 +5,23 @@ export default {
   of: [
     {
       title: 'Text Section',
-      name: 'pageBuilderTextSection',
-      type: 'pageBuilderTextSection'
+      name: 'pageBuilderText',
+      type: 'pageBuilderText'
+    },
+    {
+      title: 'Image | Text Section',
+      name: 'pageBuilderImageText',
+      type: 'pageBuilderImageText'
+    },
+    {
+      title: 'Grid Section',
+      name: 'pageBuilderGrid',
+      type: 'pageBuilderGrid'
+    },
+    {
+      title: 'CTA Section',
+      name: 'pageBuilderCta',
+      type: 'pageBuilderCta'
     }
   ]
 }

@@ -1,6 +1,6 @@
 export default {
   title: 'Text Section',
-  name: 'pageBuilderTextSection',
+  name: 'pageBuilderText',
   type: 'object',
   fields: [
     {

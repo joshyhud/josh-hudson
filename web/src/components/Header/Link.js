@@ -5,18 +5,18 @@ import { LinkTest } from '../../helpers/link'
 
 import styles from './Header.module.scss'
 
-const Link = ({ url, label, active, onClick }) => {
+const Link = ({ url, label, active }) => {
   const internal = LinkTest(url)
   const target = internal ? '_self' : '_blank'
   const rel = internal ? 'noopener' : 'noreferrer noopener nofollow'
 
   if (internal) return (
     <NextLink href={url}>
-      <a className={active ? styles.isActive : ''} onClick={onClick}>{label}</a>
+      <a className={active ? styles.isActive : ''}>{label}</a>
     </NextLink>
   )
 
-  return <a className={active ? styles.isActive : ''} href={url} target={target} rel={rel} onClick={onClick}>{label}</a>
+  return <a className={active ? styles.isActive : ''} href={url} target={target} rel={rel}>{label}</a>
 }
 
 Link.propTypes = {

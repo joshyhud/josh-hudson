@@ -6,23 +6,27 @@ import { sanityClient, getClient, usePreviewSubscription, overlayDrafts } from '
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Header from '../components/header'
+import Hero from '../components/hero'
 import PageBuilder from '../components/page-builder'
+import Footer from '../components/footer'
 
 const slugQuery = groq`*[_type == "page" && defined(slug.current)][].slug.current`
 
 const pageQuery = groq`{
   'globalSettings': *[_type == 'globalSettings'][0],
+  'globalNavigation': *[_type == 'globalNavigation'][0],
   'page': *[_type == 'page' && slug.current == $slug]
 }`
 
 export async function getStaticProps({ params, preview = false }) {
-  const { globalSettings, page } = await getClient(preview).fetch(pageQuery, { slug: params.slug })
+  const { globalSettings, globalNavigation, page } = await getClient(preview).fetch(pageQuery, { slug: params.slug })
 
   return {
     props: { 
       preview, 
       data: {
         globalSettings,
+        globalNavigation,
         page: overlayDrafts(page)
       }
     }
@@ -48,7 +52,7 @@ const Page = ({ data = {}, preview }) => {
     enabled: preview
   })
 
-  const page =overlayDrafts(previewData.page)
+  const page = overlayDrafts(previewData.page)
 
   return (
     <Layout preview={preview}>
@@ -57,8 +61,10 @@ const Page = ({ data = {}, preview }) => {
         pageSeo={page?.seo}
         pageTitle={page?.pageTitle}
       />
-      <Header />
+      <Header navLinks={data.globalNavigation?.navLinks} />
+      <Hero {...page?.hero} />
       <PageBuilder blocks={page?.pageBuilder} />
+      <Footer />
     </Layout>
   )
 }

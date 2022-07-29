@@ -29,15 +29,18 @@ const serializers = {
       const internal = LinkTest(mark.href)
       const target = !internal ? {target: "_blank"} : null
       const rel = !internal ? {rel: "nofollow noopener noreferrer"} : null
+      let style = ''
+
+      if (!!mark.style) style = mark.style === 'button' ? 'button' : 'blockLink'
       
       return internal ? (
         <Link href={mark.href}>
-          <a className={mark.blockLink ? styles.blockLink : ''}>
+          <a className={styles[style]}>
             {children}
           </a>
         </Link>
       ) : (
-        <a className={mark.blockLink ? styles.blockLink : ''} href={mark.href} {...target} {...rel}>
+        <a className={styles[style]} href={mark.href} {...target} {...rel}>
           {children}
         </a>
       )

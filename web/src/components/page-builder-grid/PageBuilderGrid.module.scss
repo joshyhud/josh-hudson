@@ -1,0 +1,18 @@
+.grid {
+  @include section;
+  display: block !important;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+
+  @include breakpoint(large up) {
+    h2 {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+.gridIntro {
+  margin-bottom: 2rem;
+}

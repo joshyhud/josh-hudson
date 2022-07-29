@@ -17,7 +17,7 @@ const Header = ({ navLinks }) => {
         {navLinks && <nav className={styles.headerNav} aria-label="main">
           <ul>
             {navLinks.map(link => <li key={link._key}>
-              <Link {...link} active={router.asPath === link.url} onClick={ResetMenu} />
+              <Link {...link} active={router.asPath === link.url} />
             </li>)}
           </ul>
         </nav>}

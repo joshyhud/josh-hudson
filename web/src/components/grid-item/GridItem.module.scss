@@ -1,0 +1,16 @@
+.gridItem {
+  padding: block(gutter);
+  background: var(--tone-light);
+
+  @include breakpoint(medium up) {
+    padding: block(medium);
+  }
+}
+
+.itemTitle {
+  margin-bottom: $gridGutter;
+
+  @include breakpoint(medium up) {
+    margin-bottom: $gridGutter * 2;
+  }
+}

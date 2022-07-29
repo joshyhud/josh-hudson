@@ -7,7 +7,7 @@ import { TiHome } from 'react-icons/ti'
 // We filter document types defined in structure to prevent
 // them from being listed twice
 const hiddenDocTypes = listItem =>
-  !['globalSettings'].includes(listItem.getId())
+  !['globalSettings', 'globalNavigation'].includes(listItem.getId())
 
 export const getDefaultDocumentNode = () => {
   return S.document().views([
@@ -30,19 +30,29 @@ export default () =>
         .icon(TiHome)
         .child(
           S.list()
-          .title('Global Settings')
-          .items([
-            S.listItem()
-              .title('Global Settings')
-              .icon()
-              .child(
-                S.document()
-                  .id('globalSettings')
-                  .title('Settings')
-                  .schemaType('globalSettings')
-                  .documentId('globalSettings')
-              ),
-          ])
+            .title('Global Settings')
+            .items([
+              S.listItem()
+                .title('Global Settings')
+                .icon()
+                .child(
+                  S.document()
+                    .id('globalSettings')
+                    .title('Settings')
+                    .schemaType('globalSettings')
+                    .documentId('globalSettings')
+                ),
+              S.listItem()
+                .title('Global Header')
+                .icon()
+                .child(
+                  S.document()
+                    .id('globalNavigation')
+                    .title('Navigation')
+                    .schemaType('globalNavigation')
+                    .documentId('globalNavigation')
+                )    
+            ])
         ),
       ...S.documentTypeListItems().filter(hiddenDocTypes)
     ])

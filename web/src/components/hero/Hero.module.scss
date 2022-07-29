@@ -1,0 +1,46 @@
+.hero {
+  @include section;
+  @include bgImg;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(black, 0.7);
+}
+
+.heroInner {
+  position: relative;
+  width: 100%;
+  max-width: $maxWidth;
+  padding: $gridGutter;
+  margin: auto;
+  color: white;
+  z-index: 1;
+
+  > * {
+    max-width: $maxWidth * 0.5;
+  }
+
+  @include breakpoint(large up) {
+    padding: $gridGutter * 2;
+  }
+}
+
+// .heroTitle {
+//   opacity: 0;
+//   transform: translateY(20px);
+//   animation: fadeInUp 300ms 200ms ease-out forwards;
+// }
+
+.heroSubtitle {
+  @include lead;
+  margin-top: 1rem;
+  // opacity: 0;
+  // transform: translateY(20px);
+  // animation: fadeInUp 300ms 400ms ease-out forwards;
+}

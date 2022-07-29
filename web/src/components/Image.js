@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { urlFor } from '../../lib/sanity'
-import ImageSrcset from '../../lib/Image'
+import { urlFor } from '../lib/sanity'
+import ImageSrcset from '../lib/Image'
 
 const Image = ({ imgRef }) => {
   if (imgRef.asset?.metadata) return <ImageSrcset source={ imgRef } />

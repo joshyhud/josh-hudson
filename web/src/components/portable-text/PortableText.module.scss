@@ -1,7 +1,7 @@
 .portableText {
   > div > * {
-    margin-top: bloack(medium);
-    margin-bottom: bloack(medium);
+    margin-top: block(medium);
+    margin-bottom: block(medium);
   }
 
   > div > *:first-child {
@@ -14,9 +14,10 @@
 
   a {
     position: relative;
+    text-decoration: none;
   }
 
-  a:not(.blockLink)::after {
+  a::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -50,4 +51,17 @@
 
 .textSmall {
   @include small;
+}
+
+.portableText .button,
+.portableText .blockLink {
+  font-size: 18px;
+}
+
+.portableText .button {
+  @include button;
+}
+
+.portableText .button::after {
+  display: none;
 }

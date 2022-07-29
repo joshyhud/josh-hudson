@@ -1,0 +1,31 @@
+.cta {
+  @include section;
+  position: relative;
+  background-color: black;
+  text-align: center;
+}
+
+.cta[data-theme="light"] {
+  color: white;
+}
+
+.cta[data-theme="dark"] {
+  color: black;
+}
+
+.ctaInner {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.ctaBackground {
+  @include bgImg;
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+}
+
+.cta p {
+  @include h3;
+}

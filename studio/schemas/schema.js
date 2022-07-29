@@ -5,11 +5,20 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import globalSettings from './documents/globalSettings'
+import globalNavigation from './documents/globalNavigation'
 import page from './documents/page'
 
 import pageBuilder from './objects/pageBuilder'
-import pageBuilderTextSection from './objects/pageBuilderTextSection'
+import pageBuilderText from './objects/pageBuilderText'
+import pageBuilderImageText from './objects/pageBuilderImageText'
+import pageBuilderGrid from './objects/pageBuilderGrid'
+import pageBuilderCta from './objects/pageBuilderCta'
+import hero from './objects/hero'
 import portableText from './objects/portableText'
+import basicPortableText from './objects/basicPortableText'
+import mainImage from './objects/mainImage'
+import navigationLink from './objects/navigationLink'
+import textItem from './objects/textItem'
 import seo from './objects/seo'
 
 
@@ -22,11 +31,20 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     globalSettings,
+    globalNavigation,
     page,
 
     pageBuilder,
-    pageBuilderTextSection,
+    pageBuilderText,
+    pageBuilderImageText,
+    pageBuilderGrid,
+    pageBuilderCta,
+    hero,
     portableText,
+    basicPortableText,
+    mainImage,
+    navigationLink,
+    textItem,
     seo
   ]),
 })

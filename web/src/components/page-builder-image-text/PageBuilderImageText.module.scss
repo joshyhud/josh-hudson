@@ -1,0 +1,98 @@
+.imageTextSectionInner {
+  @include gridWidth;
+  @include gridPadding;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imageTextSection[data-layout="row"] .imageTextSectionInner,
+.imageTextSection[data-layout="row-reverse"] .imageTextSectionInner {
+
+  @include breakpoint(large up) {
+    flex-wrap: nowrap;
+  }
+}
+
+.imageTextSection[data-layout="row-reverse"] .imageTextSectionInner {
+  flex-direction: row-reverse;
+}
+
+.imageTextSection[data-layout="column"] .imageTextSectionInner {
+  flex-direction: column;
+}
+
+.imageTextSection[data-layout="column-reverse"] .imageTextSectionInner {
+  flex-direction: column-reverse;
+}
+
+.imageTextSection__image {
+  position: relative;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+[data-layout="row"] .imageTextSection__image,
+[data-layout="row-reverse"] .imageTextSection__image {
+  @include breakpoint(large up) {
+    width: 50%;
+  }
+}
+
+[data-layout="column"] .imageTextSection__image {
+  margin-bottom: 2rem;
+
+  @include breakpoint(large up) {
+    margin-bottom: 4rem;
+  }
+}
+
+[data-layout="column-reverse"] .imageTextSection__image {
+  margin-top: block(xlarge);
+}
+
+.imageTextSection__text {
+  display: flex;
+  width: 100%;
+}
+
+[data-layout="column"] .imageTextSection__image,
+[data-layout="column-reverse"] .imageTextSection__image,
+[data-layout="column"] .imageTextSection__text,
+[data-layout="column-reverse"] .imageTextSection__text {
+  @include breakpoint(large up) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+[data-layout="row"] .imageTextSection__text,
+[data-layout="row-reverse"] .imageTextSection__text {
+  h2 {
+    margin-top: 0;
+  }
+
+  @include breakpoint(large up) {
+    width: 50%;
+  }
+}
+
+.imageTextSection__textInner {
+  width: 100%;
+  margin: auto;
+}
+
+[data-layout="row"] .imageTextSection__textInner,
+[data-layout="row-reverse"] .imageTextSection__textInner {
+  padding: 2rem 0;
+
+  @include breakpoint(large up) {
+    padding: 4rem 0;
+  }
+}
+
+[data-layout="column"] .imageTextSection__textInner h2 {
+  margin-top: 0;
+}
