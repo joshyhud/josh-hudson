@@ -6,7 +6,6 @@ import { getClient, usePreviewSubscription, overlayDrafts } from '../lib/sanity'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Header from '../components/header'
-import Hero from '../components/hero'
 import PageBuilder from '../components/page-builder'
 import Footer from '../components/footer'
 
@@ -49,7 +48,6 @@ const Home = ({ data = {}, preview }) => {
         pageTitle={page?.pageTitle}
       />
       <Header navLinks={data.globalNavigation?.navLinks} />
-      <Hero {...page?.hero} />
       <PageBuilder blocks={page?.pageBuilder} />
       <Footer />
     </Layout>

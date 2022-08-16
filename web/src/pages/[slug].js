@@ -6,7 +6,6 @@ import { sanityClient, getClient, usePreviewSubscription, overlayDrafts } from '
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 import Header from '../components/header'
-import Hero from '../components/hero'
 import PageBuilder from '../components/page-builder'
 import Footer from '../components/footer'
 
@@ -62,7 +61,6 @@ const Page = ({ data = {}, preview }) => {
         pageTitle={page?.pageTitle}
       />
       <Header navLinks={data.globalNavigation?.navLinks} />
-      <Hero {...page?.hero} />
       <PageBuilder blocks={page?.pageBuilder} />
       <Footer />
     </Layout>

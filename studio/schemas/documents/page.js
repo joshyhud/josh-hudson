@@ -24,11 +24,6 @@ export default {
         }),
     },
     {
-      title: 'Hero',
-      name: 'hero',
-      type: 'hero'
-    },
-    {
       title: 'Page Builder',
       name: 'pageBuilder',
       type: 'pageBuilder'

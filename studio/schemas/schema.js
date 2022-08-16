@@ -10,15 +10,9 @@ import page from './documents/page'
 
 import pageBuilder from './objects/pageBuilder'
 import pageBuilderText from './objects/pageBuilderText'
-import pageBuilderImageText from './objects/pageBuilderImageText'
-import pageBuilderGrid from './objects/pageBuilderGrid'
-import pageBuilderCta from './objects/pageBuilderCta'
-import hero from './objects/hero'
 import portableText from './objects/portableText'
-import basicPortableText from './objects/basicPortableText'
 import mainImage from './objects/mainImage'
 import navigationLink from './objects/navigationLink'
-import textItem from './objects/textItem'
 import seo from './objects/seo'
 
 
@@ -36,15 +30,9 @@ export default createSchema({
 
     pageBuilder,
     pageBuilderText,
-    pageBuilderImageText,
-    pageBuilderGrid,
-    pageBuilderCta,
-    hero,
     portableText,
-    basicPortableText,
     mainImage,
     navigationLink,
-    textItem,
     seo
   ]),
 })
