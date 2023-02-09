@@ -48,7 +48,7 @@ const Home = ({ data = {}, preview }) => {
         pageTitle={page?.pageTitle}
       />
       <Header navLinks={data.globalNavigation?.navLinks} />
-      <PageBuilder blocks={page?.pageBuilder} />
+      <h1>Blog Posts</h1>
       <Footer />
     </Layout>
   )

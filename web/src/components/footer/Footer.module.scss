@@ -1,6 +1,43 @@
 .footer {
-  padding: block(gutter) 0;
-  font-size: 1rem;
-  color: white;
-  background-color: black;
+	margin-top: 60px;
+	border-top: 2px solid black;
+}
+
+.social {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+}
+
+.social a {
+		margin: 0 10px 0 0;
+}
+
+.copyright {
+		margin-top: 10px;
+		text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+	.footer {
+	margin-top: 60px;
+	border-top: 2px solid black;
+	}
+
+	.social {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.social a {
+		margin: 0 10px 0 0;
+	}
+
+	.copyright {
+		margin-top: 10px;
+		text-align: left;
+	}
 }

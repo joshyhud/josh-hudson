@@ -13,19 +13,31 @@
   }
 
   a {
-    position: relative;
-    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    transition: all 1s ease-out;
+
+  }
+  a:after{
+    content: '';
+    display: block;
+    width: 0%;
+    height: 3px;
+    background: #678fdd;
+    transition: all 0.5s ease-out;
+  }
+  
+  a:hover {
+    color: #678fdd;
+    transition: all 0.5s ease-in;
+  }
+  
+  a:hover:after {
+    width: 100%;
+    transition: all 0.5s ease-in;
   }
 
-  a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
-  }
 
   li {
     position: relative;
