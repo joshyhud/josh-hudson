@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import Link from 'next/link'
+import PropTypes from "prop-types"
+import Link from "next/link"
 
-import styles from './PreviewBanner.module.scss'
+import styles from "./PreviewBanner.module.scss"
 
 const PreviewBanner = () => (
   <div className={styles.previewBanner}>
@@ -9,10 +9,8 @@ const PreviewBanner = () => (
       <p>
         You are in <b>preview mode</b>
       </p>
-      <Link href="/api/exit-preview">
-        <a className={styles.previewBannerButton}>
-          Exit Preview
-        </a>
+      <Link legacyBehavior href="/api/exit-preview">
+        <a className={styles.previewBannerButton}>Exit Preview</a>
       </Link>
     </div>
   </div>
@@ -20,5 +18,4 @@ const PreviewBanner = () => (
 
 export default PreviewBanner
 
-PreviewBanner.propTypes = {
-}
+PreviewBanner.propTypes = {}

@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Head from 'next/head'
-import { urlFor } from './sanity'
+import React from "react"
+import PropTypes from "prop-types"
+import Head from "next/head"
+import { urlFor } from "./sanity"
 
 const sizes = [32, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1500]
 
@@ -30,7 +30,7 @@ const getDimensions = (source, setWidth, setHeight) => {
 }
 
 const BuildSrc = (source, width, max = 800) =>
-  urlFor(source).width(Math.min(width, max)).quality(75).fit('max').url()
+  urlFor(source).width(Math.min(width, max)).quality(75).fit("max").url()
 
 const BuildSrcSet = (source, max = 800, dimensions) =>
   Object.values(
@@ -41,8 +41,8 @@ const BuildSrcSet = (source, max = 800, dimensions) =>
         .width(width)
         .height(height)
         .quality(75)
-        .fit('max')
-        .auto('format')
+        .fit("max")
+        .auto("format")
         .url()
 
       if (!accumulator.currentValue) {
@@ -60,7 +60,7 @@ const ImageWithSrcset = props => {
     height,
     maxWidth,
     preload = false,
-    loading = 'lazy',
+    loading = "lazy",
     style = {},
     ...rest
   } = props
@@ -70,15 +70,15 @@ const ImageWithSrcset = props => {
   const objectPosition = source.hotspot
     ? [source.hotspot.x, source.hotspot.y]
         .map(value => `${(value * 100).toFixed(2)}%`)
-        .join(' ')
-    : '50% 50%'
+        .join(" ")
+    : "50% 50%"
   const styles = {
     ...style,
     objectPosition,
   }
 
   // Short circuit for SVG images
-  if (source.asset.extension === 'svg') {
+  if (source.asset.extension === "svg") {
     return (
       <img
         src={urlFor(source).url()}
@@ -103,6 +103,7 @@ const ImageWithSrcset = props => {
             imagesrcset={srcset}
             type={source.asset.mimeType}
             key={src}
+            legacyBehavior
           />
         </Head>
       )}

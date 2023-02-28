@@ -73,8 +73,8 @@ $breakpoints: (
   end with a generic family without quotes, e.g. sans-serif.
   @see https://www.filamentgroup.com/lab/font-events.html.
 */
-@mixin font-family($font, $fallbacks) {
-  font-family: $font, $fallbacks;
+@mixin font-family($font-questrial, $fallbacks) {
+  font-family: $font-questrial, $fallbacks;
 
   .fonts-loading & {
     font-family: $fallbacks;
@@ -83,10 +83,8 @@ $breakpoints: (
 
 /* Fonts */
 
-$fallbacks: Nunito, sans-serif;
-
-@mixin font-nunito($weight: 300, $style: normal) {
-  @include font-family("Nunito", $fallbacks);
+@mixin font-questrial($weight: 300, $style: normal) {
+  @include font-family("Questrial", sans-serif);
   font-style: $style;
   font-weight: $weight;
   font-display: swap;
@@ -105,9 +103,9 @@ $fallbacks: Nunito, sans-serif;
 /* Typography */
 
 @mixin title {
-  @include font-nunito(700);
+  @include font-questrial(700);
   letter-spacing: 0.03em;
-  line-height: 1.1;
+  line-height: 1.6;
 
   span {
     color: var(--primary-color);
@@ -115,7 +113,7 @@ $fallbacks: Nunito, sans-serif;
 }
 
 @mixin listing {
-  @include font-nunito(700);
+  @include font-questrial(700);
 }
 
 @mixin h1 {
@@ -164,16 +162,18 @@ $fallbacks: Nunito, sans-serif;
 }
 
 @mixin lead {
-  @include font-nunito;
+  @include font-questrial;
   font-size: 18px;
+  line-height: 1.05;
 
   @include breakpoint(medium up) {
     font-size: 18px;
+    line-height: 1.05;
   }
 }
 
 @mixin small {
-  @include font-nunito;
+  @include font-questrial;
   font-size: 12px;
   letter-spacing: 0.03em;
   line-height: 1.3;
@@ -184,10 +184,10 @@ $fallbacks: Nunito, sans-serif;
 }
 
 @mixin body {
-  @include font-nunito;
+  @include font-questrial;
   font-size: 1rem;
   letter-spacing: 0.02em;
-  line-height: 1.125;
+  line-height: 1.25;
 
   @include breakpoint(medium up) {
     font-size: 1.125rem;
@@ -196,7 +196,7 @@ $fallbacks: Nunito, sans-serif;
 
 @mixin button {
   @include transition(background-color);
-  @include font-nunito(500);
+  @include font-questrial(500);
   padding: block(small) block(gutter);
   color: white;
   background-color: var(--primary-color);

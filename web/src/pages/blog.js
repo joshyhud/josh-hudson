@@ -11,7 +11,6 @@ import Footer from "../components/footer"
 
 const pageQuery = groq`{
   'globalSettings': *[_type == 'globalSettings'][0],
-  'globalNavigation': *[_type == 'globalNavigation'][0],
   'page': *[_id == *[_type == 'globalSettings'][0].homepage._ref]
 }`
 
@@ -25,7 +24,6 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
       data: {
         globalSettings,
-        globalNavigation,
         page: overlayDrafts(page),
       },
     },
@@ -47,9 +45,7 @@ const Home = ({ data = {}, preview }) => {
         pageSeo={page?.seo}
         pageTitle={page?.pageTitle}
       />
-      <Header navLinks={data.globalNavigation?.navLinks} />
       <h1>Blog Posts</h1>
-      <Footer />
     </Layout>
   )
 }

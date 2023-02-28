@@ -1,13 +1,12 @@
-
 /** @type {import('next').NextConfig} */
-const path = require('path')
+const path = require("path")
 
 const nextConfig = {
   images: {
-    domains: ['cdn.sanity.io'],
+    domains: ["cdn.sanity.io"],
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, 'src')],
+    includePaths: [path.join(__dirname, "src")],
     prependData: `@import "_global/_variables.scss";`,
   },
   webpack: (config, options) => {
@@ -15,13 +14,12 @@ const nextConfig = {
     // Perform customizations to webpack config
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     })
 
     // Important: return the modified config
     return config
   },
-  target: 'serverless',
 }
 
 module.exports = nextConfig

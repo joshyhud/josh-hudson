@@ -5,14 +5,14 @@ import Link from "next/link"
 import { LinkTest } from "../../helpers/link"
 
 // We're overriding the default 'block' type to use a 'Lead', so we need to bring the default back in
-const _require = require('@sanity/block-content-to-hyperscript/internals')
+const _require = require("@sanity/block-content-to-hyperscript/internals")
 
 const { getSerializers } = _require
 const renderNode = React.createElement
 const _getSerializers = getSerializers(renderNode)
 const { defaultSerializers } = _getSerializers
 
-import styles from './PortableText.module.scss'
+import styles from "./PortableText.module.scss"
 
 const serializers = {
   types: {
@@ -22,34 +22,32 @@ const serializers = {
         default:
           return BaseBlockContent.defaultSerializers.types.block(props)
       }
-    }
+    },
   },
   marks: {
-    link: ({children, mark}) => {
+    link: ({ children, mark }) => {
       const internal = LinkTest(mark.href)
-      const target = !internal ? {target: "_blank"} : null
-      const rel = !internal ? {rel: "nofollow noopener noreferrer"} : null
-      let style = ''
+      const target = !internal ? { target: "_blank" } : null
+      const rel = !internal ? { rel: "nofollow noopener noreferrer" } : null
+      let style = ""
 
-      if (!!mark.style) style = mark.style === 'button' ? 'button' : 'blockLink'
-      
+      if (!!mark.style) style = mark.style === "button" ? "button" : "blockLink"
+
       return internal ? (
-        <Link href={mark.href}>
-          <a className={styles[style]}>
-            {children}
-          </a>
+        <Link legacyBehavior href={mark.href}>
+          <a className={styles[style]}>{children}</a>
         </Link>
       ) : (
         <a className={styles[style]} href={mark.href} {...target} {...rel}>
           {children}
         </a>
       )
-    }
+    },
   },
   block: props => {
     const { node } = props
 
-    if (node.style === 'lead') {
+    if (node.style === "lead") {
       return (
         <p className={styles.textLead}>
           {node.children.map((child, index) => (
@@ -59,7 +57,7 @@ const serializers = {
       )
     }
 
-    if (node.style === 'small') {
+    if (node.style === "small") {
       return (
         <p className={styles.textSmall}>
           {node.children.map((child, index) => (
@@ -70,9 +68,13 @@ const serializers = {
     }
 
     return defaultSerializers.types.block(props)
-  }
+  },
 }
 
-const PortableText = ({ blocks }) => <div className={styles.portableText}><BaseBlockContent blocks={blocks} serializers={serializers} /></div>
+const PortableText = ({ blocks }) => (
+  <div className={styles.portableText}>
+    <BaseBlockContent blocks={blocks} serializers={serializers} />
+  </div>
+)
 
 export default PortableText

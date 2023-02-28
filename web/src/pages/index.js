@@ -5,13 +5,13 @@ import { getClient, usePreviewSubscription, overlayDrafts } from "../lib/sanity"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Header from "../components/header"
 import PageBuilder from "../components/page-builder"
-import Footer from "../components/footer"
+
+import { motion as m } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
 
 const pageQuery = groq`{
   'globalSettings': *[_type == 'globalSettings'][0],
-  'globalNavigation': *[_type == 'globalNavigation'][0],
   'page': *[_id == *[_type == 'globalSettings'][0].homepage._ref]
 }`
 
@@ -25,14 +25,13 @@ export async function getStaticProps({ params, preview = false }) {
       preview,
       data: {
         globalSettings,
-        globalNavigation,
         page: overlayDrafts(page),
       },
     },
   }
 }
 
-const Home = ({ data = {}, preview }) => {
+const Home = ({ data = {}, preview, router }) => {
   const { data: previewData } = usePreviewSubscription(pageQuery, {
     initialData: data,
     enabled: preview,
@@ -41,16 +40,18 @@ const Home = ({ data = {}, preview }) => {
   const page = overlayDrafts(previewData.page)
 
   return (
-    <Layout preview={preview}>
-      <Seo
-        globalSeo={data.globalSettings}
-        pageSeo={page?.seo}
-        pageTitle={page?.pageTitle}
-      />
-      <Header navLinks={data.globalNavigation?.navLinks} />
-      <PageBuilder blocks={page?.pageBuilder} />
-      <Footer />
-    </Layout>
+    <div>
+      <Layout preview={preview}>
+        <Seo
+          globalSeo={data.globalSettings}
+          pageSeo={page?.seo}
+          pageTitle={page?.pageTitle}
+        />
+        <AnimatePresence>
+          <PageBuilder blocks={page?.pageBuilder} />
+        </AnimatePresence>
+      </Layout>
+    </div>
   )
 }
 
