@@ -45,7 +45,6 @@ const Seo = ({ globalSeo, pageSeo, pageTitle }) => {
 }
 
 export default Seo
-
 Seo.propTypes = {
   globalSeo: PropTypes.shape({
     title: PropTypes.string.isRequired,
