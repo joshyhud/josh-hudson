@@ -9,6 +9,11 @@ export default {
       type: "pageBuilderText",
     },
     {
+      title: "Logo Grid",
+      name: "pageBuilderLogoGrid",
+      type: "pageBuilderLogoGrid",
+    },
+    {
       title: "Intro Section",
       name: "pageBuilderIntro",
       type: "pageBuilderIntro",

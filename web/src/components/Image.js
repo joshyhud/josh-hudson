@@ -5,9 +5,9 @@ import ImageSrcset from "../lib/image"
 
 const Image = ({ imgRef }) => {
   if (imgRef.asset?.metadata)
-    return <ImageSrcset source={imgRef} alt={imgRef.attribution} />
+    return <ImageSrcset source={imgRef} alt={imgRef.alt} />
 
-  return <img src={urlFor(imgRef)} alt={imgRef.attribution} />
+  return <img src={urlFor(imgRef)} alt={imgRef.alt} />
 }
 
 export default Image

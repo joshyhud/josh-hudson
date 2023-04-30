@@ -13,6 +13,7 @@ import pageBuilder from "./objects/pageBuilder";
 import pageBuilderText from "./objects/pageBuilderText";
 import pageBuilderIntro from "./objects/pageBuilderIntro";
 import pageBuilderBlogList from "./objects/pageBuilderBlogList";
+import pageBuilderLogoGrid from "./objects/pageBuilderLogoGrid";
 import portableText from "./objects/portableText";
 import mainImage from "./objects/mainImage";
 import navigationLink from "./objects/navigationLink";
@@ -30,11 +31,11 @@ export default createSchema({
     globalNavigation,
     page,
     blogs,
-
     pageBuilder,
     pageBuilderText,
     pageBuilderIntro,
     pageBuilderBlogList,
+    pageBuilderLogoGrid,
     portableText,
     mainImage,
     navigationLink,

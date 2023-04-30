@@ -4,11 +4,13 @@ import PropTypes from "prop-types"
 // Import components
 import Text from "../page-builder-text"
 import Intro from "../page-builder-intro"
+import LogoGrid from "../page-builder-logo-grid"
 
 const PageBuilder = ({ blocks }) => {
   const components = {
     pageBuilderText: Text,
     pageBuilderIntro: Intro,
+    pageBuilderLogoGrid: LogoGrid,
   }
 
   if (!blocks) return null

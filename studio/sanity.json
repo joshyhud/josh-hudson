@@ -15,7 +15,8 @@
     "@sanity/production-preview",
     "iframe-pane",
     "@sanity/dashboard",
-    "dashboard-widget-netlify"
+    "dashboard-widget-netlify",
+    "color-picker"
   ],
   "env": {
     "development": {

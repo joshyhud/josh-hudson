@@ -9,8 +9,10 @@ import {
 } from "../lib/sanity"
 
 import Layout from "../components/layout"
+import Footer from "../components/footer"
 import Seo from "../components/seo"
 import PageBuilder from "../components/page-builder"
+import { motion as m } from "framer-motion"
 
 const slugQuery = groq`*[_type == "page" && defined(slug.current)][].slug.current`
 
@@ -55,14 +57,24 @@ const Page = ({ data = {}, preview }) => {
   const page = overlayDrafts(previewData.page)
 
   return (
-    <Layout preview={preview}>
-      <Seo
-        globalSeo={data.globalSettings}
-        pageSeo={page?.seo}
-        pageTitle={page?.pageTitle}
-      />
-      <PageBuilder blocks={page?.pageBuilder} />
-    </Layout>
+    <m.div
+      className="main"
+      style={{ backgroundColor: page?.backgroundColor }}
+      initial={{ y: "100%" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+      exit={{ opacity: 1 }}
+    >
+      <Layout preview={preview}>
+        <Seo
+          globalSeo={data.globalSettings}
+          pageSeo={page?.seo}
+          pageTitle={page?.pageTitle}
+        />
+        <PageBuilder blocks={page?.pageBuilder} />
+      </Layout>
+      <Footer />
+    </m.div>
   )
 }
 

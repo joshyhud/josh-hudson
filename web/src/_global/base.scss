@@ -22,7 +22,6 @@ html {
 
 body {
   margin: 0 auto !important;
-  max-width: 800px;
   background-color: #8bd7b1;
 }
 
@@ -30,8 +29,23 @@ body {
  * Render the `main` element consistently in IE.
  */
 
-main {
+.main {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 80px 20px;
+
+  @include breakpoint(large up) {
+    padding: 130px 0;
+    width: 100%;
+  }
+
+  div, section, footer {
+    max-width: 1040px;
+    margin: 0 auto;
+
+  }
 }
 
 /**

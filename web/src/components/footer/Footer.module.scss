@@ -1,6 +1,15 @@
 .footer {
 	margin-top: 60px;
 	border-top: 2px solid #fff;
+	padding: 20px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	@include breakpoint(large up) {
+		flex-direction: row;
+		padding: 10px 0;
+	}
 }
 
 .social {
@@ -15,8 +24,23 @@
 }
 
 .copyright {
-		margin-top: 10px;
-		text-align: center;
+	margin: 20px 0 !important;
+	text-align: center;
+	@include breakpoint(large up) {
+		margin: 0 !important;
+		flex-basis: auto;
+	}
+}
+
+.footerNav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+
+	@include breakpoint(large up) {
+		flex-basis: 160px;
+		justify-content: space-between;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -37,7 +61,6 @@
 	}
 
 	.copyright {
-		margin-top: 10px;
-		text-align: left;
+		margin: 0;
 	}
 }

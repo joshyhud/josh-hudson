@@ -5,9 +5,9 @@ import { getClient, usePreviewSubscription, overlayDrafts } from "../lib/sanity"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import Header from "../components/header"
 import PageBuilder from "../components/page-builder"
 import Footer from "../components/footer"
+import { motion as m } from "framer-motion"
 
 const pageQuery = groq`{
   'globalSettings': *[_type == 'globalSettings'][0],
@@ -39,14 +39,24 @@ const Home = ({ data = {}, preview }) => {
   const page = overlayDrafts(previewData.page)
 
   return (
-    <Layout preview={preview}>
-      <Seo
-        globalSeo={data.globalSettings}
-        pageSeo={page?.seo}
-        pageTitle={page?.pageTitle}
-      />
-      <h1>Blog Posts</h1>
-    </Layout>
+    <m.div
+      className="main"
+      style={{ backgroundColor: page?.backgroundColor }}
+      initial={{ x: "100%" }}
+      animate={{ x: "0%" }}
+      transition={{ duration: 0.75, ease: "easeOut" }}
+      exit={{ opacity: 1 }}
+    >
+      <Layout preview={preview}>
+        <Seo
+          globalSeo={data.globalSettings}
+          pageSeo={page?.seo}
+          pageTitle={page?.pageTitle}
+        />
+        <h1>Blog Posts - Coming soon</h1>
+      </Layout>
+      <Footer />
+    </m.div>
   )
 }
 

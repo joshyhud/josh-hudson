@@ -15,7 +15,7 @@ $grid-fallback-widths: (
   12: 100%,
 );
 
-$grid-gutter: 16px;
+$grid-gutter: 0px;
 
 @mixin grid-max-width() {
   max-width: 1400px;
@@ -83,6 +83,13 @@ $grid-gutter: 16px;
   .modernizr-no-cssgrid.modernizr-no-flexbox {
     float: left;
   }
+
+  &.itemCentered {
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+
 }
 
 @each $breakpoint, $size in $breakpoints {
