@@ -39,6 +39,7 @@ body {
   @include breakpoint(large up) {
     padding: 130px 0;
     width: 100%;
+    height: 100%;
   }
 
   div, section, footer {

@@ -1,7 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import PortableText from "../portable-text"
-import { motion as m } from "framer-motion"
 import Image from "../Image"
 
 import styles from "./PageBuilderLogoGrid.module.scss"

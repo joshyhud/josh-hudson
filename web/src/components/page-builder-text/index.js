@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import PortableText from "../portable-text"
-import { motion as m } from "framer-motion"
 
 import styles from "./PageBuilderText.module.scss"
 
