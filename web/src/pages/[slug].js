@@ -67,7 +67,7 @@ const Page = ({ data = {}, preview }) => {
     >
       <Layout preview={preview}>
         <Seo
-          globalSeo={data.globalSettings}
+          globalSeo={data?.globalSettings}
           pageSeo={page?.seo}
           pageTitle={page?.pageTitle}
         />

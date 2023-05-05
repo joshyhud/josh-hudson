@@ -2,18 +2,25 @@ import React from "react"
 import PropTypes from "prop-types"
 import Head from "next/head"
 import { useRouter } from "next/router"
+// import { urlFor } from "../lib/sanity"
+import { sanityClient } from "../lib/sanity"
+import imageUrlBuilder from "@sanity/image-url"
 
-import { urlFor } from "../lib/sanity"
+const builder = imageUrlBuilder(sanityClient)
+
+function urlFor(source) {
+  return builder.image(source)
+}
 
 const Seo = ({ globalSeo, pageSeo, pageTitle }) => {
   const router = useRouter()
-  const canonical = pageSeo.canonical ?? `${globalSeo.url}${router.asPath}`
-  const { title, description, ogImage } = globalSeo
+  const canonical = pageSeo.canonical ?? `${globalSeo?.url}${router.asPath}`
+  const { title, description, ogImage } = globalSeo ?? ""
   const { metaTitle, image, noIndex } = pageSeo
   const formattedTitle = metaTitle ? `${metaTitle}` : `${pageTitle} | ${title}`
 
   const resolvedImage = image || ogImage
-  const imageUrl = urlFor(resolvedImage)
+  const imageUrl = urlFor(resolvedImage).url
 
   return (
     <Head>
