@@ -2,15 +2,15 @@ import {
   createClient,
   createPortableTextComponent,
   createPreviewSubscriptionHook,
-} from 'next-sanity'
-import createImageUrlBuilder from '@sanity/image-url'
+} from "next-sanity"
+import createImageUrlBuilder from "@sanity/image-url"
 
 const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_ID, // you can find this in sanity.json
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET, // or the name you chose in step 1
   token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
-  apiVersion: '2021-10-21',
-  useCdn: process.env.NODE_ENV === 'production'
+  apiVersion: "v1",
+  useCdn: process.env.NODE_ENV === "production",
 }
 
 export const urlFor = source => createImageUrlBuilder(config).image(source)
@@ -37,7 +37,8 @@ export const previewClient = createClient({
 })
 
 // Helper function for easily switching between normal client and preview client
-export const getClient = (usePreview) => usePreview ? previewClient : sanityClient
+export const getClient = usePreview =>
+  usePreview ? previewClient : sanityClient
 
 export const overlayDrafts = (data, preview) => {
   // if not array return data as it is
@@ -48,7 +49,7 @@ export const overlayDrafts = (data, preview) => {
 
   // if preview return draft or if no draft the first item
   if (preview)
-    return data.find((item) => item._id.startsWith(`drafts.`)) || data[0]
+    return data.find(item => item._id.startsWith(`drafts.`)) || data[0]
 
   return data[0]
 }
