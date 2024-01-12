@@ -21,28 +21,21 @@ const pageQuery = groq`{
   'page': *[_type == 'page' && slug.current == $slug]
 }`
 
-export async function getStaticProps({ params, preview = false }) {
-  const { globalSettings, globalNavigation, page } = await getClient(
-    preview
-  ).fetch(pageQuery, { slug: params.slug })
+export async function getServerSideProps(context) {
+  const slug = context.params.slug // Get slug from context
+  const preview = context.preview || false
+  const { globalSettings, page } = await getClient(preview).fetch(pageQuery, {
+    slug,
+  })
 
   return {
     props: {
       preview,
       data: {
         globalSettings,
-        page: overlayDrafts(page),
+        page: page?.[0] ? overlayDrafts(page[0]) : null,
       },
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const paths = await sanityClient.fetch(slugQuery)
-
-  return {
-    paths: paths.map(slug => ({ params: { slug } })),
-    fallback: true,
   }
 }
 

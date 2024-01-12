@@ -14,10 +14,9 @@ const pageQuery = groq`{
   'page': *[_id == *[_type == 'globalSettings'][0].homepage._ref]
 }`
 
-export async function getStaticProps({ params, preview = false }) {
-  const { globalSettings, globalNavigation, page } = await getClient(
-    preview
-  ).fetch(pageQuery)
+export async function getServerSideProps(context) {
+  const preview = context.preview || false
+  const { globalSettings, page } = await getClient(preview).fetch(pageQuery)
 
   return {
     props: {
