@@ -27,7 +27,8 @@
 
 .introImage img {
   width: 150px;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media only screen and (min-width: 768px) {
