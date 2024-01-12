@@ -11,7 +11,7 @@ const LogoGrid = ({ block }) => {
     <section className={styles.imageGrid}>
       <div className="grid">
         {images.map(image => (
-          <div className="gridItem itemCentered large-3 medium-4 small-6">
+          <div className="gridItem">
             <a href={image.url} target="_blank">
               <Image imgRef={image} alt />
             </a>
