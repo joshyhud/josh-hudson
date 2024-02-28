@@ -10,6 +10,12 @@ const GridItem = ({ itemTitle, text }) => (
   </div>
 )
 
+
+
+
+
+
+
 export default GridItem
 
 GridItem.propTypes = {
