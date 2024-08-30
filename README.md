@@ -1,193 +1,70 @@
-# Sanity.io/NextJS Boilerplate
-This is a stater project for Sanity.io/NextJS projects. Run `git clone git@github.com:wearetilt/boilerplates.git your-project-name` to clone this starter to a new project then follow the setup steps below.
+# Getting Started with Create React App
 
-- [Requirements](#requirements)
-- [Global Setup](#global-setup)
-- [Project Setup](#project-setup)
-  - [Sanity Setup](#sanity-setup)
-  - [Next Setup](#next-setup)
-- [Usage](#usage)
-  - [Global SCSS](#global-scss)
-  - [SCSS Modules](#scss-modules)
-  - [Components](#components)
-  - [Storybook](#storybook)
-  - [Accessibility](#accessibility)
-  - [Unit Testing](#unit-testing)
-- [Deployment](#deployment)
-  - [Sanity Deployment](#sanity-deployment)
-  - [Next Deployment](#next-deployment)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Requirements
-- NodeJS (version 14.17.6)
-- Yarn
-- Sanity CLI
-- Bit
+## Available Scripts
 
-## Global Setup
-This project requires certain packages to be installed globally before setting up. These steps are only required the first time using these packages. Once installed globally these steps can be skipped for future projects.
-- [Install Yarn globally](https://wearetilt.atlassian.net/wiki/spaces/WATP/pages/90767385/How+to+-+Install+NVM+Node+and+NPM#Yarn-Setup)
-- To install Sanity CLI run: `npm install -g @sanity/cli`
-- [Install Bit globally](https://wearetilt.atlassian.net/wiki/spaces/WATP/pages/93323269/How+to+-+Set+up+Bit)
+In the project directory, you can run:
 
-## Project Setup
-This project is setup as a monorepo as while the Sanity dashboard and NextJS frontend are linked they operate technically as distinctly separate and independent apps.
+### `npm start`
 
-### Sanity Setup
-cd into the studio directory
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-1. Ensure that Yarn is installed globally, run `yarn` or `yarn install` to install the project dependencies.
-2. Run `sanity init` to initiate a new Santiy project.
-3. When prompted with `The current folder contains a configured Sanity studio. Would you like to reconfigure it?` hit enter to accept.
-4. Follow the steps to either create a new project or choose and existing one:
-    - If creating a new project enter a project name & accept the default dataset configuration.
-5. Run `yarn start` or `sanity start` to start a local server.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-#### You will need to generate a read token in order to consume the data on the frontend
-1. Login to the [Sanity console](https://www.sanity.io/manage)
-2. Select the project you created above
-3. Navigate to the API section of the project
-4. In the Tokens section click `Add API Token`
-5. Enter a descriptive name, e.g. NextJS Read Token
-6. Allow Viewer (read only) priviledges and save
-7. The token will only be visible once so **ensure you save it somewhere you can access later**
+### `npm test`
 
-#### Using multiple datasets for different environments
-- When switching between datasets for different environments it is better to use environment variables rather than editing `sanity.json` directly
-- Run `cp .env.template .env` to copy the template to a new `.env` file.
-- Update the `SANITY_STUDIO_API_DATASET` variable
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### Building the studio
-- Run `yarn build` or `sanity build`
+### `npm run build`
 
-#### Updating the studio
-- Run `sanity upgrade`
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-For documentation on Sanity CMS visit https://www.sanity.io/docs.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Next Setup
-cd into the web directory
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-1. Ensure that Yarn is installed globally, run `yarn` or `yarn install` to install the project dependencies.
-2. Run `cp .env.template .env.development` to copy the template to a new `.env` file.
-3. Update the `NEXT_PUBLIC_SANITY_ID`, `NEXT_PUBLIC_SANITY_DATASET` & `NEXT_PUBLIC_SANITY_TOKEN` to the ones created during the Sanity setup.
-4. Ensure Bit is installed globally, run `bit init` to initiate a new Bit workspace (this is for the component library).
-5. Run `yarn dev` to start a local server.
+### `npm run eject`
 
-For documentation on NextJS visit https://nextjs.org/docs.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-## Usage
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### Global SCSS
-This project uses limited global styles which can be found in the `web/src/_global` directory. These include;
-- A `base.scss` file to normalize browser styles. **This should NOT be edited.**
-- Some global grid styles to help with layouts.
-- A `theme.scss` file for global theme styles such as base typography styles.
-- A `_variables.scss` for global mixins and variables that need to be available to all modules.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-### SCSS Modules
-This project uses CSS modules in combination with scss. All classes in CSS modules are name-spaced to the module and, therefore, avoid unintentionaly conflicting CSS.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-#### Class naming conventions
-CamelCase naming is preferred, though not enforced. For example, you may wish to use camelCase naming alongside a [BEM methodology](https://en.bem.info/methodology/css/);
-```scss
-/* Component */
-.componentName {}
+## Learn More
 
-/* Component modifier */
-.componentName--modifierName {}
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-/* Component descendant */
-.componentName__descendant {}
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-/* Component descendant modifier */
-.componentName__descendant--modifierName {}
-```
+### Code Splitting
 
-Or simply use camelCase on it's own;
-```scss
-/* Component */
-.componentName {}
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-/* Component modifier */
-.componentNameModifier {}
+### Analyzing the Bundle Size
 
-/* Component descendant */
-.componentNameDescendant {}
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-It is expected, however, that a project will be consitent in it's namming convention, i.e. the same naming convention throughout.
+### Making a Progressive Web App
 
-#### Applying classnames in JSX
-The CSS in a CSS module is no different than normal CSS, but the extension of the file is different to mark that the file will be processed. A CSS module must be imported and declared as a JavaScript object. A CSS class from that object is then referenced in the JSX className attribute which renders into HTML with dynamic CSS class names.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-E.g.
-```js
-import React from 'react'
-import styles from "./ComponentName.module.scss"
+### Advanced Configuration
 
-const ComponentName = ({ children }) => {
-  return (
-    <section className={styles.className}>{children}</section>
-  )
-}
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-export default ComponentName
-```
+### Deployment
 
-### Components
-This project is already configured to use our Reusable Component Library hosted by Bit.dev.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-#### What is Bit
-Bit.dev is a tool for isolating components and packaging them up into standalone reusable units. We use Bit in our NextJS projects for installing common components with basic functionality and minimal styling. Once installed these barebones components can be extended to fit the needs of the project.
+### `npm run build` fails to minify
 
-#### Installing Components
-- View [our Storybook library](https://wearetilt.github.io/reusable-component-library) to browse available components.
-- Follow component documentation to install into the project.
-- The component will be installed directly into the `components` directory and can be used as you would any other component.
-
-For documentation on Bit visit https://bit.dev/docs.
-
-### Storybook
-This project comes with Storybook already setup. 
-
-#### What is Storybook?
-Storybook is a development tool that is used as a playground for UI components. It allows developers to create and test components in isolation and can be used to create a design system for use by designers.
-
-A story captures the rendered state of a UI component. It’s a function that returns a component’s state given a set of arguments.
-
-#### Where to put stories?
-A component’s stories are defined in a story file using the `stories.js` prefix and lives inside the component folder. The story file is for development only, and it won't be included in your production bundle.
-
-#### Start a Storybook server
-- cd into the web directory
-- Run `yarn storybook`
-
-For documentation on Storybook visit https://storybook.js.org/docs.
-
-### Accessibility
-At Tilt we strive to build accessible and inclusive experiences. As such we follow the WCAG on accessibility standards and aim to meet high level AA standards as a minimum.
-
-In future we will integrate automated accessibility testing, however, accessibility should be a primary concern throughout the build.
-
-For more information on these standards visit https://www.w3.org/TR/WCAG21/.
-
-### Unit Testing
-This is not yet implemented but will be in future.
-
-## Deployment
-
-### Sanity Deployment
-To add once Confluence documentation on CI integration written.
-
-### Next Deployment
-This project is setup for deployment to Netlify with configuration in `netlify.toml`.
-
-#### Deploy via the GUI (Recommended)
-[A step-by-step guide to deploying using the Netlify GUI](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
-
-#### Deploy via the CLI
-- Ensure you have the Netlify CLI package installed: run `npm install netlify-cli -g`
-- Login in to obtain an authentication token: run `netlify login`
-- This will open the browser to complete authentication
-- Connect the repo for continuous integration: run `netlify init` and follow setup instructions
-- Deploy to Netlify: run `netlify deploy`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

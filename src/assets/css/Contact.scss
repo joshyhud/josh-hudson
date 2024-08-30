@@ -1,0 +1,9 @@
+.contact {
+  text-align: left;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
