@@ -1,0 +1,15 @@
+/* styles.css */
+.profile-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1000px; // To give the illusion of 3D depth
+}
+.profile-icon.animate {
+  will-change: transform;
+}
+
+.profile-icon.animate:hover {
+  transform: translate(var(--x), var(--y));
+}
