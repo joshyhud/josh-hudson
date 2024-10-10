@@ -1,0 +1,27 @@
+:root {
+  --primary-color: rgb(139, 215, 177);
+  --secondary-color: #46d6d8;
+  --tertiary-color: #e74c3c;
+
+  --white: #ffffff;
+  --dark: #1a1a2e;
+  --gray-light: #ecf0f1;
+  --gray-dark: #95a5a6;
+
+  --gradient-1: linear-gradient(
+    145deg,
+    rgba(139, 215, 177, 1) 0%,
+    rgba(139, 215, 177, 1) 30%,
+    rgba(70, 214, 216, 1) 97%,
+    rgba(0, 212, 255, 1) 100%
+  );
+
+  --accent-color-1: #000000;
+  --accent-color-2: #794e10;
+  --accent-color-3: #ff0018;
+  --accent-color-4: #ffa52c;
+  --accent-color-5: #ffff41;
+  --accent-color-6: #008018;
+  --accent-color-7: #0000f9;
+  --accent-color-8: #86007d;
+}
